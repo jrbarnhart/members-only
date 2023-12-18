@@ -29,7 +29,7 @@ main().catch((err) => console.log(err));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-// Passport authentication setup
+// Passport setup
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
