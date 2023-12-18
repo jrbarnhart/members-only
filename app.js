@@ -67,6 +67,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// Add user to res.locals
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 // Routers
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
