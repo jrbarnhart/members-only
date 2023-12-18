@@ -8,6 +8,12 @@ const UserSchema = new Schema({
     maxLength: 200,
     required: true,
     unique: true,
+    validate: {
+      validator: function (value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      },
+      message: "Invalid email address format",
+    },
   },
   password: { type: String, required: true },
   name_given: { type: String, minLength: 1, maxLength: 200, required: true },
