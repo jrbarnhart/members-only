@@ -25,3 +25,5 @@ const UserSchema = new Schema({
 UserSchema.virtual("full_name").get(function () {
   return `${this.name_given} ${this.name_family}`;
 });
+
+module.exports = mongoose.model("User", UserSchema);
