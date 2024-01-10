@@ -15,7 +15,13 @@ const UserSchema = new Schema({
       message: "Invalid email address format",
     },
   },
-  password: { type: String, required: true },
+  password: {
+    type: String,
+    required: true,
+    minLength: 8,
+    maxLength: 200,
+    required: true,
+  },
   name_given: { type: String, minLength: 1, maxLength: 200, required: true },
   name_family: { type: String, minLength: 1, maxLength: 200, required: true },
   member_type: {
