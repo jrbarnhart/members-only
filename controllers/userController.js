@@ -13,7 +13,7 @@ exports.signup_post = asyncHandler(async (req, res, next) => {
 
 // User log in get
 exports.login_get = asyncHandler(async (req, res, next) => {
-  res.send("Login form");
+  res.render("login", { title: "Log In" });
 });
 
 // User log in post
