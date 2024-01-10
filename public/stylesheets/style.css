@@ -9,9 +9,25 @@ a {
 }
 
 /* Sign Up */
+.signup-content {
+  display: grid;
+  justify-items: center;
+}
+
 .signup-content form {
   display: grid;
   justify-items: center;
+}
+
+.signup-content ul {
+  list-style: none;
+  display: grid;
+  row-gap: 8px;
+  padding: 0;
+}
+
+.signup-content li {
+  display: grid;
 }
 
 .signup-content input {
