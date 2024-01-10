@@ -15,33 +15,39 @@ a {
 }
 /* #endregion */
 
-/* #region Sign Up */
-.signup-content {
+/* #region Sign Up & Login */
+.signup-content,
+.login-content {
   display: grid;
   justify-items: center;
 }
 
-.signup-content form {
+.signup-content form,
+.login-content form {
   display: grid;
   justify-items: center;
 }
 
-.signup-content ul {
+.signup-content ul,
+.login-content ul {
   list-style: none;
   display: grid;
   row-gap: 8px;
   padding: 0;
 }
 
-.signup-content li {
+.signup-content li,
+.login-content li {
   display: grid;
 }
 
-.signup-content input {
+.signup-content input,
+.login-content input {
   max-width: 175px;
 }
 
-.signup-content button {
+.signup-content button,
+.login-content button {
   max-width: 150px;
 }
 /* #endregion */
