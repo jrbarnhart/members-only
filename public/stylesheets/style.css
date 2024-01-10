@@ -1,8 +1,23 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px 10px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+/* Sign Up */
+.signup-content form {
+  display: grid;
+  justify-items: center;
+}
+
+.signup-content input {
+  max-width: 175px;
+}
+
+.signup-content button {
+  max-width: 150px;
 }
