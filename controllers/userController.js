@@ -3,7 +3,7 @@ const { body, validationResult } = require("express-validator");
 
 // User sign up get
 exports.signup_get = asyncHandler(async (req, res, next) => {
-  res.send("Sign up form");
+  res.render("signup", { title: "Sign Up" });
 });
 
 // User sign up post
