@@ -1,0 +1,15 @@
+extends layout
+
+block content 
+  div.login-content
+    h2 Login to existing account.
+    form(action="", method="post") 
+      ul 
+        li  
+          label(for="username") Email Address: 
+          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true")
+        li  
+          label(for="password") Password: 
+          input#password(type="password" name="password" required="true")
+      button(type="submit") Log In
+        
