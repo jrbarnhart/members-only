@@ -1,0 +1,25 @@
+extends layout
+
+block content 
+  h1=title
+  div.signup-content
+    h2 Create a new account.
+    form(action="", method="post") 
+      ul 
+        li
+          label(for="name-given") First Name: 
+          input#name-given(type="text" name="name-given" placeholder="First" maxLength=200 required="true")
+        li  
+          label(for="name-family") Last Name: 
+          input#name-family(type="text", name="name-family" placeholder="Last" maxLength=200 required="true")
+        li  
+          label(for="username") Email Address: 
+          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true")
+        li  
+          label(for="password") Password: 
+          input#password(type="password" name="password" maxLength=200 minLength=8 required="true")
+        li  
+          label(for="confirm-password") Confirm Password: 
+          input#confirm-password(type="password" name="confirm-password" maxLength=200 minLength=8 required="true")
+      button(type="submit") Sign Up
+        
