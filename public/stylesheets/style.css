@@ -8,13 +8,14 @@ a {
   color: #00b7ff;
 }
 
-/* Index */
+/* #region Index */
 .index-content {
   display: grid;
   justify-items: center;
 }
+/* #endregion */
 
-/* Sign Up */
+/* #region Sign Up */
 .signup-content {
   display: grid;
   justify-items: center;
@@ -43,3 +44,4 @@ a {
 .signup-content button {
   max-width: 150px;
 }
+/* #endregion */
