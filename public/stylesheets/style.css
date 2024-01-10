@@ -8,6 +8,12 @@ a {
   color: #00b7ff;
 }
 
+/* Index */
+.index-content {
+  display: grid;
+  justify-items: center;
+}
+
 /* Sign Up */
 .signup-content {
   display: grid;
