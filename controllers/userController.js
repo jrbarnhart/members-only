@@ -31,6 +31,19 @@ exports.signup_post = [
     .isEmail()
     .withMessage("Username must be an email")
     .escape(),
+  body("password")
+    .trim()
+    .exists({ values: falsy })
+    .withMessage("Password required")
+    .isLength({ min: 8, max: 200 })
+    .withMessage("Password must be 8-200 characters")
+    .escape(),
+  body("confirm-password")
+    .trim()
+    .escape()
+    .custom((value, { req }) => {
+      return value === req.body.password;
+    }),
 
   asyncHandler(async (req, res, next) => {}),
 ];
