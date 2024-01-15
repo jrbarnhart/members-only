@@ -13,12 +13,21 @@ block content
           input#name-family(type="text", name="name-family" placeholder="Last" maxLength=200 required="true")
         li  
           label(for="username") Email Address: 
-          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true")
+          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true" autocomplete="username")
         li  
           label(for="password") Password: 
-          input#password(type="password" name="password" maxLength=200 minLength=8 required="true")
+          input#password(type="password" name="password" maxLength=200 minLength=8 required="true" autocomplete="new-password")
         li  
           label(for="confirm-password") Confirm Password: 
-          input#confirm-password(type="password" name="confirm-password" maxLength=200 minLength=8 required="true")
+          input#confirm-password(type="password" name="confirm-password" maxLength=200 minLength=8 required="true" autocomplete="new-password")
       button(type="submit") Sign Up
-        
+    
+    script. 
+      document.addEventListener("DOMContentLoaded", function() {
+        const inputsToTrim = [document.querySelector("#name-given"), document.querySelector("#name-family"), document.querySelector("#username")];
+        inputsToTrim.forEach(input => {
+          input.addEventListener("blur", function() {
+            this.value = this.value.trim();
+          });
+        });
+      });
