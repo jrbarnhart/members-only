@@ -7,13 +7,13 @@ block content
       ul 
         li
           label(for="name_given") First Name: 
-          input#name_given(type="text" name="name_given" placeholder="First" maxLength=200 required="true")
+          input#name_given(type="text" name="name_given" placeholder="First" maxLength=200 required="true" value=(undefined===formValues ? "" : formValues.name_given))
         li  
           label(for="name_family") Last Name: 
-          input#name_family(type="text", name="name_family" placeholder="Last" maxLength=200 required="true")
+          input#name_family(type="text", name="name_family" placeholder="Last" maxLength=200 required="true" value=(undefined===formValues ? "" : formValues.name_family))
         li  
           label(for="username") Email Address: 
-          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true" autocomplete="username")
+          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true" autocomplete="username" value=(undefined===formValues ? "" : formValues.username))
         li  
           label(for="password") Password: 
           input#password(type="password" name="password" maxLength=200 minLength=8 required="true" autocomplete="new-password")
@@ -21,6 +21,10 @@ block content
           label(for="confirm_password") Confirm Password: 
           input#confirm_password(type="password" name="confirm_password" maxLength=200 minLength=8 required="true" autocomplete="new-password")
       button(type="submit") Sign Up
+      if errors
+          ul.errors
+            for error in errors
+              li!= error.msg + "."
     
     script. 
       document.addEventListener("DOMContentLoaded", function() {
