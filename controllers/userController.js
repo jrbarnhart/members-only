@@ -1,5 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+
+const User = require("../models/user");
 
 // User sign up get
 exports.signup_get = asyncHandler(async (req, res, next) => {
@@ -8,14 +11,14 @@ exports.signup_get = asyncHandler(async (req, res, next) => {
 
 // User sign up post
 exports.signup_post = [
-  body("name-given")
+  body("name_given")
     .trim()
     .exists({ values: "falsy" })
     .withMessage("First name required")
     .isLength({ min: 1, max: 200 })
     .withMessage("First name must be 1-200 characters")
     .escape(),
-  body("name-family")
+  body("name_family")
     .trim()
     .exists({ values: "falsy" })
     .withMessage("Last name required")
@@ -33,19 +36,45 @@ exports.signup_post = [
     .escape(),
   body("password")
     .trim()
-    .exists({ values: falsy })
+    .exists({ values: "falsy" })
     .withMessage("Password required")
     .isLength({ min: 8, max: 200 })
     .withMessage("Password must be 8-200 characters")
     .escape(),
-  body("confirm-password")
+  body("confirm_password")
     .trim()
     .escape()
     .custom((value, { req }) => {
       return value === req.body.password;
-    }),
+    })
+    .withMessage("Passwords do not match"),
 
-  asyncHandler(async (req, res, next) => {}),
+  asyncHandler(async (req, res, next) => {
+    const validationErrors = validationResult(req);
+
+    const formValues = {
+      name_given: req.body.name_given,
+      name_family: req.body.name_family,
+      username: req.body.username,
+      password: req.body.password,
+      confirm_password: req.body.confirm_password,
+    };
+
+    if (!validationErrors.isEmpty()) {
+      res.render("signup", {
+        title: "Sign Up",
+        formValues,
+        validationErrors,
+      });
+    } else {
+      bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
+        if (err) {
+          return next(err);
+        }
+        // No errors so create and save user w/ encrpted pw
+      });
+    }
+  }),
 ];
 
 // User log in get
