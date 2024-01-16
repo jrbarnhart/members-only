@@ -61,8 +61,8 @@ exports.signup_post = [
     if (!validationErrors.isEmpty()) {
       res.render("signup", {
         title: "Sign Up",
-        formValues,
-        validationErrors,
+        formValues: formValues,
+        errors: validationErrors.array(),
       });
     } else {
       bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
