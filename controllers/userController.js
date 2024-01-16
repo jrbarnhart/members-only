@@ -56,8 +56,6 @@ exports.signup_post = [
       name_given: req.body.name_given,
       name_family: req.body.name_family,
       username: req.body.username,
-      password: req.body.password,
-      confirm_password: req.body.confirm_password,
     };
 
     if (!validationErrors.isEmpty()) {
