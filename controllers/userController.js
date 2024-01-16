@@ -25,7 +25,7 @@ exports.signup_post = [
     .isLength({ min: 1, max: 200 })
     .withMessage("Last name must be 1-200 characters")
     .escape(),
-  body("username")
+  body("username") // TODO - Add custom validator for unique usernames
     .trim()
     .exists({ values: "falsy" })
     .withMessage("Username required")
