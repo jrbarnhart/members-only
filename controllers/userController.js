@@ -34,9 +34,9 @@ exports.signup_post = [
     .withMessage("Username must be 3-200 characters")
     .isEmail()
     .withMessage("Username must be an email")
-    .custom((value, { req }) => {
-      const existingUser = User.findOne({ username: value });
-      return existingUser === undefined;
+    .custom(async (value, { req }) => {
+      const existingUser = await User.findOne({ username: value });
+      if (existingUser) throw new Error("Username/email already in use");
     })
     .withMessage("Username/email already in use"),
   body("password")
