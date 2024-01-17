@@ -13,34 +13,34 @@ exports.signup_get = asyncHandler(async (req, res, next) => {
 exports.signup_post = [
   body("name_given")
     .trim()
+    .escape()
     .exists({ values: "falsy" })
     .withMessage("First name required")
     .isLength({ min: 1, max: 200 })
-    .withMessage("First name must be 1-200 characters")
-    .escape(),
+    .withMessage("First name must be 1-200 characters"),
   body("name_family")
     .trim()
+    .escape()
     .exists({ values: "falsy" })
     .withMessage("Last name required")
     .isLength({ min: 1, max: 200 })
-    .withMessage("Last name must be 1-200 characters")
-    .escape(),
+    .withMessage("Last name must be 1-200 characters"),
   body("username") // TODO - Add custom validator for unique usernames
     .trim()
+    .escape()
     .exists({ values: "falsy" })
     .withMessage("Username required")
     .isLength({ min: 3, max: 200 })
     .withMessage("Username must be 3-200 characters")
     .isEmail()
-    .withMessage("Username must be an email")
-    .escape(),
+    .withMessage("Username must be an email"),
   body("password")
     .trim()
+    .escape()
     .exists({ values: "falsy" })
     .withMessage("Password required")
     .isLength({ min: 8, max: 200 })
-    .withMessage("Password must be 8-200 characters")
-    .escape(),
+    .withMessage("Password must be 8-200 characters"),
   body("confirm_password")
     .trim()
     .escape()
