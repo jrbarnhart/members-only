@@ -25,7 +25,7 @@ exports.signup_post = [
     .withMessage("Last name required")
     .isLength({ min: 1, max: 200 })
     .withMessage("Last name must be 1-200 characters"),
-  body("username") // TODO - Add custom validator for unique usernames
+  body("username")
     .trim()
     .escape()
     .exists({ values: "falsy" })
@@ -33,7 +33,12 @@ exports.signup_post = [
     .isLength({ min: 3, max: 200 })
     .withMessage("Username must be 3-200 characters")
     .isEmail()
-    .withMessage("Username must be an email"),
+    .withMessage("Username must be an email")
+    .custom((value, { req }) => {
+      const existingUser = User.findOne({ username: value });
+      return !(existingUser === undefined);
+    })
+    .withMessage("Username/email already in use"),
   body("password")
     .trim()
     .escape()
