@@ -5,4 +5,17 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     h1=title
+    #user 
+      if (currentUser)
+        p Welcome #{currentUser.name_given}
+        a(href="/users/log-out") Log Out
+      else
+        div
+          a(href="/users/sign-up") Create Account
+        div
+          a(href="/users/log-in") Log In
+    nav 
+      ul 
+        li 
+          a(href="/") Home
     block content
