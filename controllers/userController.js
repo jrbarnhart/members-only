@@ -36,7 +36,7 @@ exports.signup_post = [
     .withMessage("Username must be an email")
     .custom((value, { req }) => {
       const existingUser = User.findOne({ username: value });
-      return !(existingUser === undefined);
+      return existingUser === undefined;
     })
     .withMessage("Username/email already in use"),
   body("password")
@@ -74,7 +74,16 @@ exports.signup_post = [
         if (err) {
           return next(err);
         }
-        // No errors so create and save user w/ encrpted pw
+        const user = new User({
+          username: req.body.username,
+          password: hashedPassword,
+          name_given: req.body.name_given,
+          name_family: req.body.name_family,
+          member_type: "basic",
+        });
+
+        await user.save();
+        res.redirect("/");
       });
     }
   }),
