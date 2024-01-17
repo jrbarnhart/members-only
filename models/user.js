@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   member_type: {
     type: String,
     enum: {
-      values: ["basic", "member", "admin"],
+      values: ["basic", "full", "admin"],
       message: "enum validator failed for path `{PATH}` with value `{VALUE}`",
     },
     required: true,
