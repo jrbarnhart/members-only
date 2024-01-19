@@ -14,18 +14,18 @@ html
           a(href="/users/log-out") Log Out
       nav 
         ul 
-          li 
+          li.first 
             a(href="/") Home
           if (currentUser)
             li 
               a(href="/new-message") Create Message
             if (currentUser.member_type === "basic" || "full")
-              li 
-                a(href="/users/upgrade") Upgrade Membership 
+              li.last 
+                a(href="/users/upgrade") Upgrade 
           else 
             li
               a(href="/users/sign-up") Create Account
-            li
+            li.last
               a(href="/users/log-in") Log In
       div.content
         block content
