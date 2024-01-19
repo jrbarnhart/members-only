@@ -1,3 +1,4 @@
+/* #region Global Rules */
 body {
   padding: 0px 10px;
   margin: 0px;
@@ -7,6 +8,30 @@ body {
 a {
   color: #00b7ff;
 }
+/* #endregion */
+
+/* #region Layout */
+.layout {
+  display: grid;
+  grid-template-areas: "title user" "nav nav" "main main";
+}
+
+h1 {
+  grid-area: title;
+}
+
+.user {
+  grid-area: user;
+}
+
+nav {
+  grid-area: nav;
+}
+
+.content {
+  grid-area: main;
+}
+/* #endregion /
 
 /* #region Index */
 .index-content {
