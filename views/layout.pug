@@ -5,17 +5,23 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     h1=title
-    #user 
+    div.user 
       if (currentUser)
         p Welcome #{currentUser.name_given}
         a(href="/users/log-out") Log Out
-      else
-        div
-          a(href="/users/sign-up") Create Account
-        div
-          a(href="/users/log-in") Log In
     nav 
       ul 
         li 
           a(href="/") Home
+        if (currentUser)
+          li 
+            a(href="/new-message") Create Message
+          if (currentUser.member_type === "basic" || "full")
+            li 
+              a(href="/users/upgrade") Upgrade Membership 
+        else 
+          li
+            a(href="/users/sign-up") Create Account
+          li
+            a(href="/users/log-in") Log In
     block content
