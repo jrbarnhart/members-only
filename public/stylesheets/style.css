@@ -1,8 +1,11 @@
 /* #region Global Rules */
 body {
-  padding: 0px 10px;
+  padding: 0px 0px;
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  width: 100%;
 }
 
 a {
@@ -14,6 +17,8 @@ a {
 .layout {
   display: grid;
   grid-template-areas: "title user" "nav nav" "main main";
+  width: 95%;
+  max-width: 700px;
 }
 
 h1 {
@@ -22,10 +27,34 @@ h1 {
 
 .user {
   grid-area: user;
+  display: grid;
+  justify-items: end;
 }
 
 nav {
   grid-area: nav;
+}
+
+nav ul {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+  justify-items: center;
+  align-items: center;
+}
+
+nav li {
+  text-align: center;
+}
+
+nav li.first {
+  justify-self: start;
+}
+
+nav li.last {
+  justify-self: end;
 }
 
 .content {
