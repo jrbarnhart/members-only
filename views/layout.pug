@@ -4,25 +4,26 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    h1=title
-    div.user 
-      if (currentUser)
-        p Welcome #{currentUser.name_given}
-        a(href="/users/log-out") Log Out
-    nav 
-      ul 
-        li 
-          a(href="/") Home
+    div.layout
+      h1=title
+      div.user 
         if (currentUser)
+          p Welcome #{currentUser.name_given}
+          a(href="/users/log-out") Log Out
+      nav 
+        ul 
           li 
-            a(href="/new-message") Create Message
-          if (currentUser.member_type === "basic" || "full")
+            a(href="/") Home
+          if (currentUser)
             li 
-              a(href="/users/upgrade") Upgrade Membership 
-        else 
-          li
-            a(href="/users/sign-up") Create Account
-          li
-            a(href="/users/log-in") Log In
-    div.content
-      block content
+              a(href="/new-message") Create Message
+            if (currentUser.member_type === "basic" || "full")
+              li 
+                a(href="/users/upgrade") Upgrade Membership 
+          else 
+            li
+              a(href="/users/sign-up") Create Account
+            li
+              a(href="/users/log-in") Log In
+      div.content
+        block content
