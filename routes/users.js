@@ -19,4 +19,8 @@ router.post("/log-in", userController.login_post);
 //Log out
 router.get("/log-out", userController.logout_get);
 
+// Upgrade
+router.get("/upgrade", userController.upgrade_get);
+router.post("/upgrade", userController.upgrade_post);
+
 module.exports = router;
