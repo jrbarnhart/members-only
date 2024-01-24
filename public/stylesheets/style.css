@@ -3,6 +3,7 @@
   --bg-1: #333333;
   --bg-2: #5e5e5e;
   --font-1: #ffffff;
+  --highlight: #00b7ff;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: var(--highlight);
 }
 
 a:hover {
@@ -148,6 +149,25 @@ nav li.last {
 
 .signup-content button,
 .login-content button {
-  max-width: 150px;
+  width: 170px;
+  height: 40px;
+  color: var(--highlight);
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--bg-2);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 2px black;
+}
+
+.signup-content button:hover,
+.login-content button:hover {
+  filter: brightness(80%);
+}
+
+.signup-content button:active,
+.login-content button:active {
+  filter: brightness(120%);
+  box-shadow: -1px -2px black;
 }
 /* #endregion */
