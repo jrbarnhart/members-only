@@ -10,10 +10,9 @@ html
       h1=title
       div.user 
         if (currentUser)
-          p Welcome #{currentUser.name_given}
-          a(href="/users/log-out") Log Out
+          p Welcome, #{currentUser.name_given} (#[a(href="/users/log-out") Log Out])
         else 
-          p Welcome Guest User
+          p Welcome, Guest User
       nav 
         ul 
           li.first 
