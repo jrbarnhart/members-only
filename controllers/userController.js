@@ -6,9 +6,9 @@ const passport = require("passport");
 const User = require("../models/user");
 
 // User sign up GET
-exports.signup_get = asyncHandler(async (req, res, next) => {
+exports.signup_get = (req, res, next) => {
   res.render("signup", { title: "Sign Up" });
-});
+};
 
 // User sign up POST
 exports.signup_post = [
@@ -91,21 +91,21 @@ exports.signup_post = [
 ];
 
 // User log in GET
-exports.login_get = asyncHandler(async (req, res, next) => {
+exports.login_get = (req, res, next) => {
   res.render("login", { title: "Log In" });
-});
+};
 
 // User log in POST
 exports.login_post = [
   body("username").trim().escape(),
   body("password").trim().escape(),
 
-  asyncHandler(async (req, res, next) => {
+  (req, res, next) => {
     passport.authenticate("local", {
       successRedirect: "/",
       failureRedirect: "/users/log-in",
     })(req, res, next);
-  }),
+  },
 ];
 
 // User log out
