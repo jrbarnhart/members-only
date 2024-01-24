@@ -12,6 +12,8 @@ html
         if (currentUser)
           p Welcome #{currentUser.name_given}
           a(href="/users/log-out") Log Out
+        else 
+          p Welcome Guest User
       nav 
         ul 
           li.first 
