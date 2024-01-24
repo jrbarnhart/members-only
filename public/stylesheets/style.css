@@ -23,12 +23,30 @@ a {
 
 h1 {
   grid-area: title;
+  margin: 0;
+  padding-top: 20px;
+  align-self: center;
 }
 
 .user {
   grid-area: user;
+  padding-top: 20px;
+  align-self: center;
   display: grid;
   justify-items: end;
+}
+
+.user p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.user span {
+  font-size: 1rem;
+}
+
+.user a {
+  text-decoration: none;
 }
 
 nav {
