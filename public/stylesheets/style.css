@@ -151,23 +151,23 @@ nav li.last {
 .login-content button {
   width: 170px;
   height: 40px;
-  color: var(--highlight);
+  color: var(--font-1);
   font-size: 1.1rem;
   font-weight: bold;
   background-color: var(--bg-2);
   border-radius: 10px;
-  border: none;
-  box-shadow: 1px 2px black;
+  border: 1px solid black;
+  box-shadow: 1px 1px black;
 }
 
 .signup-content button:hover,
 .login-content button:hover {
-  filter: brightness(80%);
+  background-color: #666666;
 }
 
 .signup-content button:active,
 .login-content button:active {
-  filter: brightness(120%);
-  box-shadow: -1px -2px black;
+  background-color: #4e4e4e;
+  box-shadow: -1px -1px black;
 }
 /* #endregion */
