@@ -5,6 +5,9 @@ const Message = require("../models/message");
 
 // Create message get
 exports.create_message_get = (req, res, next) => {
+  if (!res.locals.currentUser) {
+    res.redirect("/users/log-in");
+  }
   res.render("create_message", { title: "Create Message" });
 };
 // Create message post
