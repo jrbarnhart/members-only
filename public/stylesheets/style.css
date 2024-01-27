@@ -155,9 +155,9 @@ nav li.last {
   font-size: 1.1rem;
   font-weight: bold;
   background-color: var(--bg-2);
-  border-radius: 10px;
+  border-radius: 7px;
   border: 1px solid black;
-  box-shadow: 1px 1px black;
+  box-shadow: 1px 1px rgb(20, 20, 20);
 }
 
 .signup-content button:hover,
