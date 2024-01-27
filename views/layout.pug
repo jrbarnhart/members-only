@@ -19,7 +19,7 @@ html
             a(href="/") Home
           if (currentUser)
             li 
-              a(href="/new-message") Create Message
+              a(href="/messages/create-message") Create Message
             if (currentUser.member_type === "basic" || "full")
               li.last 
                 a(href="/users/upgrade") Upgrade 
