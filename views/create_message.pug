@@ -1,17 +1,18 @@
 extends layout
 
 block content 
-  h2 Create a new message.
-  form(action="" method="POST")
-    ul 
-      li 
-        label(for="title") Title: 
-        input#title(type="text" name="title" placeholder="Title or topic" maxLength=100 required="true" value=(undefined===formValues ? "" : formValues.title) )
-      li 
-        label(for="text") Message Text: 
-        textarea#text(name="text" placeholder="Write a message..." maxLength=500 required="true")
-    button(type="submit") Post Message
-    if errors
-      ul.errors
-        for error in errors
-          li!= error.msg + "."
+  div.create-message-content
+    h2 Create a new message.
+    form(action="" method="POST")
+      ul 
+        li 
+          label(for="title") Title: 
+          input#title(type="text" name="title" placeholder="Title or topic" maxLength=100 required="true" value=(undefined===formValues ? "" : formValues.title) )
+        li 
+          label(for="text") Message Text: 
+          textarea#text(name="text" placeholder="Write a message..." maxLength=500 required="true")
+      button(type="submit") Post Message
+      if errors
+        ul.errors
+          for error in errors
+            li!= error.msg + "."
