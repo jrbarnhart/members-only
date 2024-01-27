@@ -7,9 +7,9 @@ block content
       ul 
         li  
           label(for="username") Email Address: 
-          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true")
+          input#username(type="email" name="username" placeholder="user@domain.com" maxLength=200 required="true" autocomplete="username")
         li  
           label(for="password") Password: 
-          input#password(type="password" name="password" required="true")
+          input#password(type="password" name="password" required="true" autocomplete="current-password")
       button(type="submit") Log In
         
