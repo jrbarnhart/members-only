@@ -111,21 +111,24 @@ nav li.last {
 }
 /* #endregion */
 
-/* #region Sign Up & Login */
+/* #region Sign Up, Login, Create Message */
 .signup-content,
-.login-content {
+.login-content,
+.create-message-content {
   display: grid;
   justify-items: center;
 }
 
 .signup-content form,
-.login-content form {
+.login-content form,
+.create-message-content form {
   display: grid;
   justify-items: center;
 }
 
 .signup-content ul,
-.login-content ul {
+.login-content ul,
+.create-message-content ul {
   list-style: none;
   display: grid;
   row-gap: 8px;
@@ -133,13 +136,15 @@ nav li.last {
 }
 
 .signup-content li,
-.login-content li {
+.login-content li,
+.create-message-content li {
   display: grid;
   font-size: 1.1rem;
 }
 
 .signup-content input,
-.login-content input {
+.login-content input,
+.create-message-content input {
   max-width: 175px;
   padding: 5px;
   font-size: 1.1rem;
@@ -147,8 +152,18 @@ nav li.last {
   border-radius: 5px;
 }
 
+.create-message-content textarea {
+  max-width: 250px;
+  height: 200px;
+  padding: 5px;
+  font-size: 1.1rem;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
 .signup-content button,
-.login-content button {
+.login-content button,
+.create-message-content button {
   width: 170px;
   height: 40px;
   color: var(--font-1);
@@ -161,12 +176,14 @@ nav li.last {
 }
 
 .signup-content button:hover,
-.login-content button:hover {
+.login-content button:hover,
+.create-message-content button:hover {
   background-color: #666666;
 }
 
 .signup-content button:active,
-.login-content button:active {
+.login-content button:active,
+.create-message-content button:active {
   background-color: #4e4e4e;
   box-shadow: -1px -1px black;
 }
