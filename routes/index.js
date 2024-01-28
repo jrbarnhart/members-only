@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
+const { decode } = require("html-entities");
 
 const Message = require("../models/message");
 
@@ -21,6 +22,12 @@ router.get(
         .select("-author -timestamp")
         .limit(10)
         .exec();
+    }
+    if (messages) {
+      messages.forEach((message) => {
+        const decodedMessage = decode(message.text);
+        message.text = decodedMessage;
+      });
     }
     res.render("index", { title: "Message Board", messages: messages });
   })
