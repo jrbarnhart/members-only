@@ -2,9 +2,8 @@ extends layout
 
 block content
   div.index-content
-    div.messages
       if messages
-        ul 
+        ul.messages
           each message in messages 
             li.message 
               p= message.text 
