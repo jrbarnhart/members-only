@@ -2,4 +2,12 @@ extends layout
 
 block content
   div.index-content
-    p Welcome to #{title}
+    div.messages
+      ul 
+        each message in messages 
+          li.message 
+            p= message.text 
+            if currentUser 
+              p= message.author.full_name 
+              p= message.timestamp
+            
