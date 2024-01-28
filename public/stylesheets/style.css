@@ -2,6 +2,7 @@
 :root {
   --bg-1: #333333;
   --bg-2: #5e5e5e;
+  --bg-3: #444444;
   --font-1: #ffffff;
   --font-2: #181818;
   --highlight: #00b7ff;
@@ -44,10 +45,12 @@ a:hover {
 .index-content .message,
 .index-content .message-short {
   display: grid;
-  grid-template: 1fr min-content / 1fr 1fr;
-  grid-template-areas: "message-text message-text" "author time";
+  grid-template: min-content 1fr min-content / 1fr 1fr;
+  grid-template-areas: "title title" "message-text message-text" "author time";
   background-color: var(--bg-message);
   border-radius: 20px;
+  border: 2px solid black;
+  box-shadow: 1px 1px 2px rgb(22, 22, 22);
 }
 
 .index-content .message p,
@@ -58,29 +61,44 @@ a:hover {
 .index-content .message .text,
 .index-content .message-short .text {
   grid-area: message-text;
-  background-color: var(--bg-2);
-  font-size: 1.3rem;
+  background-color: var(--bg-3);
+  font-size: 1.2rem;
   padding: 16px 12px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  overflow-wrap: break-word;
+}
+
+.index-content .message .title,
+.index-content .message-short .title {
+  grid-area: title;
+  padding: 8px 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--font-2);
+  border-bottom: 1px solid black;
   overflow-wrap: break-word;
 }
 
 .index-content .message-short .text {
-  border-radius: 20px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .index-content .message .author {
   grid-area: author;
   padding: 8px 12px;
   color: var(--font-2);
+  font-weight: bold;
+  border-top: 1px solid black;
 }
 
 .index-content .message .time {
   grid-area: time;
   padding: 8px 12px;
   color: var(--font-2);
-  justify-self: end;
+  border-top: 1px solid black;
+  text-align: end;
 }
 
 /* #endregion */
