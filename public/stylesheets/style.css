@@ -4,6 +4,7 @@
   --bg-2: #5e5e5e;
   --font-1: #ffffff;
   --highlight: #00b7ff;
+  --bg-message: #9c9c9c;
 }
 
 body {
@@ -24,6 +25,42 @@ a {
 a:hover {
   filter: brightness(80%);
 }
+/* #endregion */
+
+/* #region Index */
+.index-content {
+  display: grid;
+  justify-items: center;
+}
+
+.index-content .messages {
+  list-style: none;
+}
+
+.index-content .message {
+  display: grid;
+  grid-template: 1fr min-content / 1fr 1fr;
+  grid-template-areas: "message-text message-text" "author time";
+  background-color: var(--bg-message);
+}
+
+.index-content .message p {
+  margin: 0;
+}
+
+.index-content .message .text {
+  grid-area: message-text;
+  background-color: var(--bg-2);
+}
+
+.index-content .message .author {
+  grid-area: author;
+}
+
+.index-content .message .time {
+  grid-area: time;
+}
+
 /* #endregion */
 
 /* #region Layout */
@@ -101,13 +138,6 @@ nav li.last {
 
 .content {
   grid-area: main;
-}
-/* #endregion /
-
-/* #region Index */
-.index-content {
-  display: grid;
-  justify-items: center;
 }
 /* #endregion */
 
