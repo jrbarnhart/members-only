@@ -3,11 +3,14 @@ extends layout
 block content
   div.index-content
     div.messages
-      ul 
-        each message in messages 
-          li.message 
-            p= message.text 
-            if currentUser 
-              p= message.author.full_name 
-              p= message.timestamp
+      if messages
+        ul 
+          each message in messages 
+            li.message 
+              p= message.text 
+              if currentUser 
+                p= message.author.full_name 
+                p= message.timestamp_formatted
+      else
+        p No messages are here yet...
             
