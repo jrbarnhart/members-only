@@ -181,24 +181,27 @@ nav li.last {
 }
 /* #endregion */
 
-/* #region Sign Up, Login, Create Message */
+/* #region Sign Up, Login, Create Message, Upgrade User */
 .signup-content,
 .login-content,
-.create-message-content {
+.create-message-content,
+.upgrade-user-content {
   display: grid;
   justify-items: center;
 }
 
 .signup-content form,
 .login-content form,
-.create-message-content form {
+.create-message-content form,
+.upgrade-user-content form {
   display: grid;
   justify-items: center;
 }
 
 .signup-content ul,
 .login-content ul,
-.create-message-content ul {
+.create-message-content ul,
+.upgrade-user-content ul {
   list-style: none;
   display: grid;
   row-gap: 8px;
@@ -207,14 +210,16 @@ nav li.last {
 
 .signup-content li,
 .login-content li,
-.create-message-content li {
+.create-message-content li,
+.upgrade-user-content li {
   display: grid;
   font-size: 1.1rem;
 }
 
 .signup-content input,
 .login-content input,
-.create-message-content input {
+.create-message-content input,
+.upgrade-user-content input {
   max-width: 175px;
   padding: 5px;
   font-size: 1.1rem;
@@ -233,7 +238,8 @@ nav li.last {
 
 .signup-content button,
 .login-content button,
-.create-message-content button {
+.create-message-content button,
+.upgrade-user-content button {
   width: 170px;
   height: 40px;
   color: var(--font-1);
@@ -247,13 +253,15 @@ nav li.last {
 
 .signup-content button:hover,
 .login-content button:hover,
-.create-message-content button:hover {
+.create-message-content button:hover,
+.upgrade-user-content button:hover {
   background-color: #666666;
 }
 
 .signup-content button:active,
 .login-content button:active,
-.create-message-content button:active {
+.create-message-content button:active,
+.upgrade-user-content button:active {
   background-color: #4e4e4e;
   box-shadow: -1px -1px black;
 }
