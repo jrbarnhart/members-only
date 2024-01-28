@@ -127,6 +127,26 @@ exports.upgrade_get = (req, res, next) => {
 };
 
 // User upgrade POST
-exports.upgrade_post = (req, res, next) => {
-  res.send("Upgrade POST NYI");
-};
+exports.upgrade_post = [
+  body("password").trim().escape(),
+
+  asyncHandler(async (req, res, next) => {
+    if (!res.locals.currentUser) {
+      res.redirect("/users/log-in");
+    }
+    let successMessage;
+    if (req.body.password === process.env.UPGRADE_SECRET_BASIC) {
+      successMessage = "Account set to basic";
+    }
+    if (req.body.password === process.env.UPGRADE_SECRET_FULL) {
+      successMessage = "Account set to full";
+    }
+    if (req.body.password === process.env.UPGRADE_SECRET_ADMIN) {
+      successMessage = "Account set to admin";
+    }
+    res.render("upgrade_user", {
+      title: "Upgrade Account",
+      successMessage: successMessage,
+    });
+  }),
+];
