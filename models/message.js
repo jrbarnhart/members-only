@@ -8,4 +8,8 @@ const MessageSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
 
+MessageSchema.virtual("timestamp_formatted").get(function () {
+  return this.timestamp.toLocaleString();
+});
+
 module.exports = mongoose.model("Message", MessageSchema);
