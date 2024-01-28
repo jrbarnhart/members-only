@@ -120,6 +120,9 @@ exports.logout_get = (req, res, next) => {
 
 // User upgrade GET
 exports.upgrade_get = (req, res, next) => {
+  if (!res.locals.currentUser) {
+    res.redirect("/users/log-in");
+  }
   res.render("upgrade_user", { title: "Upgrade Account" });
 };
 
