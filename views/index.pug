@@ -5,11 +5,14 @@ block content
       if messages
         ul.messages
           each message in messages 
-            li.message 
-              p.text= message.text 
-              if currentUser 
+            if currentUser 
+              li.message 
+                p.text= message.text 
                 p.author= message.author.full_name 
                 p.time= message.timestamp_formatted
+            else 
+              li.message-short
+                p.text= message.text 
       else
         p No messages are here yet...
             
