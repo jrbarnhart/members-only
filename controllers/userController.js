@@ -120,7 +120,7 @@ exports.logout_get = (req, res, next) => {
 
 // User upgrade GET
 exports.upgrade_get = (req, res, next) => {
-  res.send("Upgrade GET NYI");
+  res.render("upgrade_user", { title: "Upgrade Account" });
 };
 
 // User upgrade POST
