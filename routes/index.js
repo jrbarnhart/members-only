@@ -25,8 +25,10 @@ router.get(
     }
     if (messages) {
       messages.forEach((message) => {
-        const decodedMessage = decode(message.text);
-        message.text = decodedMessage;
+        const decodedText = decode(message.text);
+        const decodedTitle = decode(message.title);
+        message.text = decodedText;
+        message.title = decodedTitle;
       });
     }
     res.render("index", { title: "Message Board", messages: messages });
