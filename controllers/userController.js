@@ -134,7 +134,7 @@ exports.upgrade_post = [
     if (!res.locals.currentUser) {
       res.redirect("/users/log-in");
     }
-    let successMessage;
+    let successMessage = "Incorrect password";
     if (req.body.password === process.env.UPGRADE_SECRET_BASIC) {
       successMessage = "Account set to basic";
     }
