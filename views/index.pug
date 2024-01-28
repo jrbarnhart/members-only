@@ -7,11 +7,13 @@ block content
           each message in messages 
             if currentUser 
               li.message 
+                p.title= message.title
                 p.text= message.text 
                 p.author= message.author.full_name 
                 p.time= message.timestamp_formatted
             else 
               li.message-short
+                p.title= message.title
                 p.text= message.text 
       else
         p No messages are here yet...
