@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+  div.upgrade-user-content
+    h2 Enter secret password.
+      form(action="", method="post") 
+        label(for="password") Password: 
+        input#password(type="password" name="password" required="true" autocomplete="off")
+        button(type="submit") Upgrade
+        if successMessage
+          p= successMessage
