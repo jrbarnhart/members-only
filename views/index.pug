@@ -6,10 +6,10 @@ block content
         ul.messages
           each message in messages 
             li.message 
-              p= message.text 
+              p.text= message.text 
               if currentUser 
-                p= message.author.full_name 
-                p= message.timestamp_formatted
+                p.author= message.author.full_name 
+                p.time= message.timestamp_formatted
       else
         p No messages are here yet...
             
