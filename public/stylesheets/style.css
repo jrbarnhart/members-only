@@ -3,8 +3,9 @@
   --bg-1: #333333;
   --bg-2: #5e5e5e;
   --font-1: #ffffff;
+  --font-2: #181818;
   --highlight: #00b7ff;
-  --bg-message: #9c9c9c;
+  --bg-message: #b3b3b3;
 }
 
 body {
@@ -35,30 +36,50 @@ a:hover {
 
 .index-content .messages {
   list-style: none;
+  padding: 0;
+  display: grid;
+  row-gap: 14px;
 }
 
-.index-content .message {
+.index-content .message,
+.index-content .message-short {
   display: grid;
   grid-template: 1fr min-content / 1fr 1fr;
   grid-template-areas: "message-text message-text" "author time";
   background-color: var(--bg-message);
+  border-radius: 20px;
 }
 
-.index-content .message p {
+.index-content .message p,
+.index-content .message-short p {
   margin: 0;
 }
 
-.index-content .message .text {
+.index-content .message .text,
+.index-content .message-short .text {
   grid-area: message-text;
   background-color: var(--bg-2);
+  font-size: 1.3rem;
+  padding: 16px 12px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.index-content .message-short .text {
+  border-radius: 20px;
 }
 
 .index-content .message .author {
   grid-area: author;
+  padding: 8px 12px;
+  color: var(--font-2);
 }
 
 .index-content .message .time {
   grid-area: time;
+  padding: 8px 12px;
+  color: var(--font-2);
+  justify-self: end;
 }
 
 /* #endregion */
