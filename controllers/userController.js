@@ -137,12 +137,21 @@ exports.upgrade_post = [
     let successMessage = "Incorrect password";
     if (req.body.password === process.env.UPGRADE_SECRET_BASIC) {
       successMessage = "Account set to basic";
+      await User.findByIdAndUpdate(res.locals.currentUser._id, {
+        member_type: "basic",
+      }).exec();
     }
     if (req.body.password === process.env.UPGRADE_SECRET_FULL) {
       successMessage = "Account set to full";
+      await User.findByIdAndUpdate(res.locals.currentUser._id, {
+        member_type: "full",
+      }).exec();
     }
     if (req.body.password === process.env.UPGRADE_SECRET_ADMIN) {
       successMessage = "Account set to admin";
+      await User.findByIdAndUpdate(res.locals.currentUser._id, {
+        member_type: "admin",
+      }).exec();
     }
     res.render("upgrade_user", {
       title: "Upgrade Account",
