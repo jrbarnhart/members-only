@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  div.delete-message-content 
+    if message 
+      h2 Delete message?
+      h3= message.title 
+      p= message.text
+      a(href=`/messages/delete-message/${message._id}/confirm`) Yes 
+      a(href="/") Cancel
+    else 
+      p Message not found.
