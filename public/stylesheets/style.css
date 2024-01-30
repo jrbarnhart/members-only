@@ -285,6 +285,7 @@ nav li.last {
   display: grid;
   grid-template: repeat(3, min-content) / min-content 1fr;
   grid-template-areas: "title title" "mtext mtext" "confirm cancel";
+  column-gap: 12px;
 }
 
 .delete-message-content .message-title {
