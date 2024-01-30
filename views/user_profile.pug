@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  div.user-profile-content
+    if currentUser 
+      h2= currentUser.full_name
+      h3= currentUser.username
+      h3 Membership Level: #{currentUser.member_type[0].toUpperCase() + currentUser.member_type.slice(1)}
+    else 
+      h2 No user logged in.
