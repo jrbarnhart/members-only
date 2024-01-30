@@ -5,6 +5,15 @@ const passport = require("passport");
 
 const User = require("../models/user");
 
+// User profile
+exports.profile_get = asyncHandler(async (req, res, next) => {
+  if (res.locals.currentUser) {
+    res.render("user_profile", { title: "User Profile" });
+  } else {
+    res.render("login", { title: "Log In" });
+  }
+});
+
 // User sign up GET
 exports.signup_get = (req, res, next) => {
   res.render("signup", { title: "Sign Up" });
