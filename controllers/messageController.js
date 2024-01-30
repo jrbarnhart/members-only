@@ -57,7 +57,15 @@ exports.create_message_post = [
 // Delete message get
 exports.delete_message_get = asyncHandler(async (req, res, next) => {
   const message = await Message.findById(req.params.id);
-  res.render("delete_message", { title: "Delete Message?", message: message });
+  const decodedMessage = {
+    text: decode(message.text),
+    title: decode(message.title),
+  };
+  res.render("delete_message", {
+    title: "Delete Message?",
+    message: message,
+    decodedMessage: decodedMessage,
+  });
 });
 // Delete message post
 exports.delete_message_post = asyncHandler(async (req, res, next) => {
