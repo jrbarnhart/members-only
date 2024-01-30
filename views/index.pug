@@ -2,10 +2,10 @@ extends layout
 
 block content
   div.index-content
-      if messages
+      if (messages && currentUser)
         ul.messages
           each message in messages 
-            if currentUser 
+            if (currentUser.member_type === "full" || currentUser.member_type === "admin") 
               li.message 
                 p.title= message.title
                 p.text= message.text 
@@ -15,6 +15,8 @@ block content
               li.message-short
                 p.title= message.title
                 p.text= message.text 
+      else if messages 
+        p #[a(href="/users/sign-up") Create an account] to view messages.
       else
         p No messages are here yet...
             
