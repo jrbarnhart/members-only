@@ -275,3 +275,66 @@ nav li.last {
   box-shadow: -1px -1px black;
 }
 /* #endregion */
+
+/* #region Delete Message */
+.delete-message-content {
+  display: grid;
+}
+
+.delete-message-content form {
+  display: grid;
+  grid-template: repeat(3, min-content) / min-content 1fr;
+  grid-template-areas: "title title" "mtext mtext" "confirm cancel";
+}
+
+.delete-message-content .message-title {
+  grid-area: title;
+}
+
+.delete-message-content .message-text {
+  grid-area: mtext;
+}
+
+.delete-message-content .confirm {
+  grid-area: confirm;
+  width: 170px;
+  height: 40px;
+  color: var(--font-1);
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--bg-2);
+  border-radius: 7px;
+  border: 1px solid black;
+  box-shadow: 1px 1px rgb(20, 20, 20);
+}
+
+.delete-message-content .cancel {
+  grid-area: cancel;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  text-decoration: none;
+  text-align: center;
+  color: var(--font-1);
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--bg-2);
+  border-radius: 7px;
+  border: 1px solid black;
+  box-shadow: 1px 1px rgb(20, 20, 20);
+}
+
+.delete-message-content .confirm:hover,
+.delete-message-content .cancel:hover {
+  background-color: #666666;
+  filter: brightness(100%);
+}
+
+.delete-message-content .confirm:active,
+.delete-message-content .cancel:active {
+  background-color: #4e4e4e;
+  box-shadow: -1px -1px black;
+}
+
+/* #endregion */
