@@ -4,9 +4,14 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("User profile NYI");
+router.get("/", (req, res, next) => {
+  if (res.locals.currentUser) {
+    res.redirect(res.locals.currentUser.url);
+  } else {
+    res.redirect("/users/log-in");
+  }
 });
+router.get("/:id", userController.profile_get);
 
 // Sign up
 router.get("/sign-up", userController.signup_get);
