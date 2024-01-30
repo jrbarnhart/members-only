@@ -45,8 +45,8 @@ a:hover {
 .index-content .message,
 .index-content .message-short {
   display: grid;
-  grid-template: min-content 1fr min-content / 1fr 1fr;
-  grid-template-areas: "title title" "message-text message-text" "author time";
+  grid-template: min-content 1fr min-content min-content / 1fr 1fr;
+  grid-template-areas: "title title" "message-text message-text" "author time" "delete delete";
   background-color: var(--bg-message);
   border-radius: 20px;
   border: 2px solid black;
@@ -99,6 +99,15 @@ a:hover {
   color: var(--font-2);
   border-top: 1px solid black;
   text-align: end;
+}
+
+.index-content .message .delete-message {
+  grid-area: delete;
+  text-align: right;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  font-weight: bold;
+  color: red;
 }
 
 /* #endregion */
