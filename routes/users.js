@@ -11,7 +11,6 @@ router.get("/", (req, res, next) => {
     res.redirect("/users/log-in");
   }
 });
-router.get("/:id", userController.profile_get);
 
 // Sign up
 router.get("/sign-up", userController.signup_get);
@@ -27,5 +26,8 @@ router.get("/log-out", userController.logout_get);
 // Upgrade
 router.get("/upgrade", userController.upgrade_get);
 router.post("/upgrade", userController.upgrade_post);
+
+// User Profile
+router.get("/:id", userController.profile_get);
 
 module.exports = router;
