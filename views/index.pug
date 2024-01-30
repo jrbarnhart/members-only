@@ -11,6 +11,8 @@ block content
                 p.text= message.text 
                 p.author= message.author.full_name 
                 p.time= message.timestamp_formatted
+                if (currentUser.member_type === "admin")
+                  a.delete-message(href=`/messages/delete-message/${message._id}`) Delete 
             else 
               li.message-short
                 p.title= message.title
