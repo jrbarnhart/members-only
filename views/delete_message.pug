@@ -2,11 +2,11 @@ extends layout
 
 block content 
   div.delete-message-content 
-    if (message && currentUser.member_type === "admin")
+    if (message && decodedMessage && currentUser.member_type === "admin")
       h2 Delete message?
       form(action=`/messages/delete-message/${message._id}/confirm` method="POST")
-        h3.message-title= message.title 
-        p.message-text= message.text
+        h3.message-title= decodedMessage.title 
+        p.message-text= decodedMessage.text
         button.confirm(type="submit") Yes
         a.cancel(href="/") Cancel
     else if (message && !currentUser.member_type === "admin")
