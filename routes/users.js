@@ -21,7 +21,7 @@ router.get("/log-in", userController.login_get);
 router.post("/log-in", userController.login_post);
 
 //Log out
-router.get("/log-out", userController.logout_get);
+router.post("/log-out", userController.logout_post);
 
 // Upgrade
 router.get("/upgrade", userController.upgrade_get);
