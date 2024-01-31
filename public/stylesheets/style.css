@@ -289,6 +289,10 @@ nav li.last {
   background-color: #4e4e4e;
   box-shadow: -1px -1px black;
 }
+
+.login-content .login-error {
+  color: red;
+}
 /* #endregion */
 
 /* #region Delete Message */
