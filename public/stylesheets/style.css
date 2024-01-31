@@ -132,8 +132,9 @@ h1 {
   grid-area: user;
   padding: 10px 0;
   align-self: center;
-  display: grid;
-  justify-items: end;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .user p {
@@ -142,13 +143,27 @@ h1 {
   margin: 0;
 }
 
-.user span {
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
 .user a {
   text-decoration: none;
+}
+
+.user form {
+  display: inline;
+}
+
+.user form .log-out {
+  display: inline;
+  background-color: transparent;
+  border: none;
+  color: var(--text-1);
+}
+
+.user form .log-out span {
+  color: var(--highlight);
+}
+
+.user form .log-out:hover {
+  filter: brightness(80%);
 }
 
 nav {
