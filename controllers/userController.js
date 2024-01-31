@@ -101,7 +101,11 @@ exports.signup_post = [
 
 // User log in GET
 exports.login_get = (req, res, next) => {
-  res.render("login", { title: "Log In" });
+  let failure;
+  if (req.query.failure === "true") {
+    failure = true;
+  }
+  res.render("login", { title: "Log In", failure: failure });
 };
 
 // User log in POST
@@ -112,7 +116,7 @@ exports.login_post = [
   (req, res, next) => {
     passport.authenticate("local", {
       successRedirect: "/",
-      failureRedirect: "/users/log-in",
+      failureRedirect: "/users/log-in?failure=true",
     })(req, res, next);
   },
 ];
