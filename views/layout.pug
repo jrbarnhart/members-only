@@ -10,7 +10,7 @@ html
       h1=title
       div.user 
         if (currentUser)
-          p Welcome, #[a(href=currentUser.url) #{currentUser.name_given}] #[form(action="/users/log-out" method="POST") #[button.log-out(type=submit) Log Out]]
+          p Welcome, #[a(href=currentUser.url) #{currentUser.name_given}] #[form(action="/users/log-out" method="POST") #[button.log-out(type=submit) (#[span Log Out])]]
         else 
           p Welcome, Guest User
       nav 
